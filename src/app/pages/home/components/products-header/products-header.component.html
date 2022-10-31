@@ -1,17 +1,48 @@
-<mat-card class="mb-4 bg-gray-200">
+<mat-card class="mb-4 bg-gray-300">
     <div class="flex justify-between">
         <div>
+
             <button 
                 mat-button 
                 [matMenuTriggerFor]="sortByMenu" 
                 class="bg-gray-500"
                 >
                     Sort by {{sort}}
+                    <mat-icon>expand_more</mat-icon>
             </button>
+
             <mat-menu #sortByMenu="matMenu" class="bg-gray-600">
                 <button (click)="onSortUpdated('ascending')" mat-menu-item>ascending</button>
                 <button (click)="onSortUpdated('descending')"mat-menu-item>descending</button>
             </mat-menu>
+        </div>
+        <div class="flex items-center">
+            <div>
+                <button 
+                    mat-button
+                    [matMenuTriggerFor]="menu"
+                    class="text-black"
+                    >
+                        Show {{ itemsShowCount }}
+                        <mat-icon>expand_more</mat-icon>
+                </button>
+                <mat-menu #menu="matMenu">
+                    <button (click)="onItemUpdated(12)" mat-menu-item>12</button>
+                    <button (click)="onItemUpdated(24)" mat-menu-item>24</button>
+                    <button (click)="onItemUpdated(36)" mat-menu-item>36</button>
+
+                </mat-menu>
+
+            </div>
+            <button (click)="onColumnsUpdated(1)">
+                <mat-icon class="text-gray-700">view_list</mat-icon>
+            </button>
+            <button (click)="onColumnsUpdated(3)">
+                <mat-icon class="text-gray-700">view_module</mat-icon>
+            </button>
+            <button (click)="onColumnsUpdated(4)">
+                <mat-icon class="text-gray-700">view_comfy</mat-icon>
+            </button>
         </div>
     </div>
 </mat-card>
